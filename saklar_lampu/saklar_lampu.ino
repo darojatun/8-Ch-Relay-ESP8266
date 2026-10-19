@@ -35,11 +35,11 @@ const char* PARAM_INPUT_2 = "state";
 // Kredensial akses dashboard & API (Basic Auth)
 // Contoh pemakaian dari MikroTik:
 //   /tool fetch url="http://192.168.12.16/update?relay=1&state=1" user="bluematrix" password="P0o9i8u7" keep-result=no;
-const char* HTTP_USER = "bluematrix";
-const char* HTTP_PASS = "P0o9i8u7";
+const char* HTTP_USER = "username";
+const char* HTTP_PASS = "Password";
 
 const char* ssidAP = "Saklar-Lampu"; // The name of the Wi-Fi network that will be created
-const char* passwordAP = "BlueMatrix";   // The password required to connect to it, leave blank for an open network
+const char* passwordAP = "123456***78";   // The password required to connect to it, leave blank for an open network
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
@@ -47,9 +47,10 @@ AsyncWebServer server(80);
 // true = request belum terautentikasi; balasan 401 sudah dikirim.
 // Verifikasi dilakukan manual (base64 "user:pass") karena authenticate()
 // pada ESPAsyncWebServer 3.1.0 menolak kredensial yang benar.
+// bisa gunakan tool https://www.base64encode.org/
 bool tolakTanpaLogin(AsyncWebServerRequest *request){
-  // "bluematrix:P0o9i8u7" -> base64
-  static const char TARGET[] = "Ymx1ZW1hdHJpeDpQMG85aTh1Nw==";
+  // "username:Password" -> base64
+  static const char TARGET[] = "dXNlcm5hbWU6UGFzc3dvcmQ=";
   bool sah = false;
 
   if(request->hasHeader("Authorization")){
