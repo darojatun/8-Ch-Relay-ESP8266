@@ -34,7 +34,7 @@ const char* PARAM_INPUT_2 = "state";
 
 // Kredensial akses dashboard & API (Basic Auth)
 // Contoh pemakaian dari MikroTik:
-//   /tool fetch url="http://192.168.12.16/update?relay=1&state=1" user="bluematrix" password="P0o9i8u7" keep-result=no;
+//   /tool fetch url="http://192.168.88.16/update?relay=1&state=1" user="username" password="Password" keep-result=no;
 const char* HTTP_USER = "username";
 const char* HTTP_PASS = "Password";
 
